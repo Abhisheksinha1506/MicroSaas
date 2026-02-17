@@ -29,7 +29,7 @@ async function loadEnv() {
     if (window.ENV) {
         SUPABASE_URL = window.ENV.SUPABASE_URL;
         SUPABASE_ANON_KEY = window.ENV.SUPABASE_ANON_KEY;
-        if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+        if (SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL !== 'YOUR_SUPABASE_PROJECT_URL') {
             sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             console.log('Supabase initialized with config.js values.');
             return;
@@ -57,7 +57,56 @@ async function loadEnv() {
         }
     } catch (err) {
         console.warn('Could not load .env file. Falling back to default behavior.');
+        showConfigurationMessage();
     }
+}
+
+// --- Configuration Helper ---
+function showConfigurationMessage() {
+    // Create a configuration notice
+    const notice = document.createElement('div');
+    notice.id = 'config-notice';
+    notice.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #ff8a00, #e52e71);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        font-family: 'DM Mono', monospace;
+        font-size: 12px;
+        z-index: 10000;
+        max-width: 300px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease-out;
+    `;
+    notice.innerHTML = `
+        <strong>⚠️ Database Not Configured</strong><br>
+        <small>Voting is disabled. Add Supabase credentials to enable.</small>
+        <br><br>
+        <small>See config.example.js for instructions.</small>
+    `;
+    
+    document.body.appendChild(notice);
+    
+    // Add slide-in animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Auto-hide after 10 seconds
+    setTimeout(() => {
+        if (notice.parentNode) {
+            notice.style.animation = 'slideIn 0.3s ease-out reverse';
+            setTimeout(() => notice.remove(), 300);
+        }
+    }, 10000);
 }
 
 // --- Live Vote Counts ---
@@ -265,7 +314,7 @@ let votedIndices = JSON.parse(localStorage.getItem('votedIdeas') || '[]');
             localStorage.setItem('votedIdeas', JSON.stringify(votedIndices));
 
             // Save to Supabase (if configured)
-            if (sbClient && SUPABASE_URL !== 'YOUR_SUPABASE_PROJECT_URL') {
+            if (sbClient && SUPABASE_URL && SUPABASE_URL !== 'YOUR_SUPABASE_PROJECT_URL') {
                 try {
                     const { error } = await sbClient
                         .from('votes')
@@ -278,7 +327,27 @@ let votedIndices = JSON.parse(localStorage.getItem('votedIdeas') || '[]');
                     debouncedFetchVoteCounts();
                 } catch (err) {
                     console.error('Supabase save failed:', err.message);
+                    // Show error message but keep the vote in localStorage
+                    const errorMsg = document.createElement('div');
+                    errorMsg.style.cssText = `
+                        position: fixed;
+                        top: 80px;
+                        right: 20px;
+                        background: #e74c3c;
+                        color: white;
+                        padding: 10px 15px;
+                        border-radius: 4px;
+                        font-family: 'DM Mono', monospace;
+                        font-size: 11px;
+                        z-index: 10000;
+                    `;
+                    errorMsg.textContent = '⚠️ Vote saved locally but sync failed';
+                    document.body.appendChild(errorMsg);
+                    setTimeout(() => errorMsg.remove(), 3000);
                 }
+            } else {
+                // No database configured - vote saved locally only
+                console.log('Vote saved locally (no database configured)');
             }
         }
     });
