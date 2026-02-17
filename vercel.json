@@ -1,9 +1,0 @@
-{
-  "functions": {},
-  "rewrites": [
-    {
-      "source": "/config.js",
-      "destination": "/api/config"
-    }
-  ]
-}

@@ -331,25 +331,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script>
-        // Load environment variables dynamically
-        (function() {
-            const script = document.createElement('script');
-            script.src = '/api/config';
-            script.onerror = function() {
-                console.warn('Could not load environment variables from API');
-                // Fallback to local config if available
-                const fallbackScript = document.createElement('script');
-                fallbackScript.src = 'config.js';
-                fallbackScript.onerror = function() {
-                    console.warn('Local config not found, using fallback behavior');
-                    window.ENV = {};
-                };
-                document.head.appendChild(fallbackScript);
-            };
-            document.head.appendChild(script);
-        })();
-    </script>
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 
