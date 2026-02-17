@@ -25,7 +25,20 @@ let SUPABASE_ANON_KEY = '';
 let sbClient = null;
 
 async function loadEnv() {
-    // Check if variables are already loaded via config.js (for file:// protocol)
+    // Check if environment variables are injected by Vercel (production)
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.protocol !== 'file:') {
+        // In production, check if Vercel has injected environment variables
+        // Vercel injects them as window.ENV during build time
+        if (window.ENV && window.ENV.SUPABASE_URL && window.ENV.SUPABASE_ANON_KEY) {
+            SUPABASE_URL = window.ENV.SUPABASE_URL;
+            SUPABASE_ANON_KEY = window.ENV.SUPABASE_ANON_KEY;
+            sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            console.log('Supabase initialized with Vercel environment variables.');
+            return;
+        }
+    }
+
+    // Check if variables are already loaded via config.js (for file:// protocol or local development)
     if (window.ENV) {
         SUPABASE_URL = window.ENV.SUPABASE_URL;
         SUPABASE_ANON_KEY = window.ENV.SUPABASE_ANON_KEY;
@@ -56,7 +69,7 @@ async function loadEnv() {
             console.log('Supabase initialized with .env values.');
         }
     } catch (err) {
-        console.warn('Could not load .env file. Falling back to default behavior.');
+        console.warn('Could not load environment variables. Falling back to default behavior.');
         showConfigurationMessage();
     }
 }
