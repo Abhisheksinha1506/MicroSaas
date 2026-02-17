@@ -1,0 +1,78 @@
+[
+    {
+        "heading": "Document Intelligence API",
+        "summary": "A lightning-fast Document Intelligence API that extracts structured data from any PDF, scanned image, invoice, or form into clean, ready-to-use JSON with 99% accuracy at literally 1/10th the cost of AWS Textract — letting startups, accountants, and SMBs automate document-heavy workflows without massive cloud bills or complex setup."
+    },
+    {
+        "heading": "Auto Repair Shop Management",
+        "summary": "All-in-one cloud platform that replaces the chaotic pen-and-paper systems still used by 180K+ independent auto repair shops with digital job cards, inventory tracking, customer CRM, invoicing, and technician scheduling — finally giving small garage owners the modern tools that big chains have had for years."
+    },
+    {
+        "heading": "Salon & Spa Operations Suite",
+        "summary": "Mobile-first salon and spa management platform that delivers seamless online booking, real-time inventory, staff scheduling, client CRM, and automated marketing — everything Mindbody promised but never truly delivered for small independent salons and spas."
+    },
+    {
+        "heading": "Spreadsheet to API Converter",
+        "summary": "Instant Spreadsheet-to-API converter that lets you upload any Excel or Google Sheet and immediately get a secure, live REST API with full CRUD operations, authentication, and webhooks — turning business data into production-ready endpoints in under 60 seconds with zero coding."
+    },
+    {
+        "heading": "Compliance-First Vendor Manager",
+        "summary": "Automated, proactive SaaS guardian that scans third-party vendors in real-time for compliance risks and regulatory changes, delivering instant alerts and dashboards so B2B teams stay audit-ready without manual effort — eliminating the expensive, error-prone quarterly reviews that leave companies exposed between audits."
+    },
+    {
+        "heading": "Embedded Finance Validator",
+        "summary": "Lightweight fintech validator that instantly stress-tests embedded finance integrations (payments, lending, BNPL) for compliance, fraud, and security risks, giving non-bank platforms a clear \"go/no-go\" report before launch — so startups avoid the six-figure regulatory fines that kill embedded finance products post-go-live."
+    },
+    {
+        "heading": "Alternative Data Credit Risk API",
+        "summary": "A B2B risk scoring API that aggregates alternative data points—such as utility payments, rental history, and income volatility—to predict default risk for the 'thin-file' market, solving the unit economics collapse that killed lenders like Tally and Plastiq by selling the 'shovel' (data intelligence) to smaller fintechs who cannot afford enterprise bureau contracts but desperately need to avoid high-risk subprime defaults."
+    },
+    {
+        "heading": "ESG Compliance Badge Generator",
+        "summary": "A self-serve compliance portal that enables small manufacturers and suppliers to upload operational data and instantly generate 'Compliance Ready' badges and audit-ready PDF reports, pivoting on the failure of enterprise-focused tools like Tallarna by targeting the SMEs who are desperate to satisfy the strict ESG requirements of massive buyers like Amazon and Walmart to avoid losing contracts."
+    },
+    {
+        "heading": "AI Safety Layer for Multi-Agent Systems",
+        "summary": "A real-time observability and safety platform that continuously monitors how multiple AI agents interact across workflows, tools, APIs, and shared data sources, building a live interaction graph of agent decisions and detecting conflicts such as goal misalignment, duplicate or contradictory actions, policy violations, race conditions, and hidden coordination failures. The system uses both rule-based detection and LLM-powered semantic reasoning to identify when agents are working against each other or creating downstream business risk, then assigns a quantified risk score, explains the conflict in plain English, and triggers alerts or automated guardrails before production impact occurs. Designed for companies deploying autonomous AI workflows, agent orchestration platforms, or multi-agent automation pipelines, it acts as a trust layer that enables safe scaling of AI agents without requiring humans to manually review every decision or interaction."
+    },
+    {
+        "heading": "PrivacyScribe",
+        "summary": "A local AI transcription tool that guarantees 100% HIPAA privacy by processing all audio entirely on-device, never sending patient data to the cloud — purpose-built for therapists, physicians, and clinics that need clinical-grade accuracy without the legal liability of third-party data handling."
+    },
+    {
+        "heading": "Design Pulse",
+        "summary": "An AI agent that ingests chaotic, scattered design feedback from Slack threads and Figma comments and transforms them into structured, de-duplicated, prioritized developer tickets — cutting the handoff gap between design and engineering that causes 40% of UI bugs and missed sprint deadlines."
+    },
+    {
+        "heading": "Tutor Predict",
+        "summary": "Predictive analytics platform for tutoring centers and online education businesses that flags at-risk students 2–4 weeks early based on login frequency, session length, and assignment completion patterns — giving educators time to intervene before churn, refund requests, or failed outcomes damage their reputation."
+    },
+    {
+        "heading": "Logi Logic",
+        "summary": "AI-driven inventory optimization that analyzes sales velocity, seasonal trends, and supplier lead times to help small e-commerce brands avoid the twin killers of overstocking (cash tied up in dead inventory) and stockouts (lost sales and expedited shipping costs that destroy margins)."
+    },
+    {
+        "heading": "TOS Checker",
+        "summary": "A specialized monitoring service that automatically audits weekly Terms of Service and privacy policy changes across the SaaS tools your business depends on, instantly flagging new legal risks, data ownership traps, or fee changes — so small businesses aren't blindsided by the contract updates that enterprise legal teams catch and they miss."
+    },
+    {
+        "heading": "DeepSync",
+        "summary": "A productivity bridge that detects when you open your IDE or enter focus mode and automatically mutes Slack, Teams, and email notifications while setting context-aware \"Deep Work\" statuses across all platforms — then restores everything the moment you stop coding, eliminating the context-switching tax that costs developers an average of 23 minutes of recovery time per interruption."
+    },
+    {
+        "heading": "API Vitals",
+        "summary": "A real-time monitoring dashboard that tracks the latency, uptime, error rates, and version changes of every external API your product depends on — proactively alerting your team before a third-party outage becomes your customer's support ticket and your team's all-hands incident response."
+    },
+    {
+        "heading": "Treasury Safe",
+        "summary": "A multi-bank cash management dashboard for founders and CFOs that monitors balances across all accounts in real time, recommends optimal distribution across FDIC-insured institutions, and alerts when concentration risk exceeds safe thresholds — the tool every startup wished existed the week Silicon Valley Bank collapsed."
+    },
+    {
+        "heading": "Pod Manager",
+        "summary": "An all-in-one billing, enrollment, and parent communication platform built specifically for the fast-growing learning pod and micro-school market, replacing the duct-taped combination of Venmo, Google Forms, and WhatsApp groups that pod educators currently use to run what are effectively small education businesses."
+    },
+    {
+        "heading": "Curated Cart",
+        "summary": "A white-label commerce tool that lets newsletter writers, influencers, and niche curators bundle and sell physical products from multiple retailers in a single unified checkout — monetizing their taste and audience trust without holding inventory, managing logistics, or building a storefront from scratch."
+    }
+]
