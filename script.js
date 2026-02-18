@@ -260,25 +260,14 @@ let votedIndices = JSON.parse(localStorage.getItem('votedIdeas') || '[]');
                 const subject = encodeURIComponent(`Regarding feedback for idea number ${ideaNumText}`);
                 emailLink.href = `mailto:abhisheksinha1594@gmail.com?subject=${subject}`;
 
-                // Check if already voted (Local first)
+                // Check if current user has already voted (localStorage only)
+                // We don't check database because it contains votes from ALL users
+                // localStorage tracks only this user's votes
                 let isVoted = votedIndices.includes(currentIdeaIndex);
 
-                // If not local, check Supabase (if configured)
-                if (!isVoted && sbClient && SUPABASE_URL !== 'YOUR_SUPABASE_PROJECT_URL') {
-                    try {
-                        const { data, error } = await sbClient
-                            .from('votes')
-                            .select('id')
-                            .eq('idea_index', currentIdeaIndex)
-                            .limit(1);
-
-                        if (data && data.length > 0) {
-                            isVoted = true;
-                        }
-                    } catch (err) {
-                        console.warn('Supabase check failed, falling back to local state.');
-                    }
-                }
+                // Note: We don't need to check Supabase for existing votes
+                // because that would show if ANYONE has voted, not just this user
+                // localStorage is the correct way to track individual user votes
 
                 if (isVoted) {
                     voteButton.style.display = 'none';
